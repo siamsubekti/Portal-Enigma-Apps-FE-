@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://angular.io/" target="blank"><img src="angular.svg" width="130" alt="Nest Logo" /></a>&emsp;
+  <a href="http://angular.io/" target="blank"><img src="angular.svg" width="130" alt="Angular Logo" /></a>&emsp;
   <img src="enigma.jpg" width="320" alt="Enigma Portal" />
 </p>
 
