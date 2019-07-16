@@ -8,7 +8,8 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --open",
+    "start:ssl": "ng serve --open --ssl true --ssl-cert ./dev-certs/localhost.crt --ssl-key ./dev-certs/localhost.key",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
