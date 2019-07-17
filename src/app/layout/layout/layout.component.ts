@@ -16,12 +16,12 @@ export class LayoutComponent implements OnInit {
     document.body.classList.remove('py-4');
     document.body.classList.remove('py-sm-0');
 
-    document.getElementById('theme_id').classList.remove('theme-cyan');
+    document.getElementById('theme_id').classList.remove('theme-orange');
     if (this.router.url == '/') {
-      document.getElementById('theme_id').classList.add('theme-cyan');
+      document.getElementById('theme_id').classList.add('theme-orange');
     }
     if (this.router.url == '/index1') {
-      document.getElementById('theme_id').classList.add('theme-cyan');
+      document.getElementById('theme_id').classList.add('theme-orange');
     }
     else if (this.router.url == '/index2') {
       document.getElementById('theme_id').classList.add('theme-red');

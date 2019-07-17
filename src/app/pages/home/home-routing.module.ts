@@ -12,7 +12,7 @@ import { Index8Component } from './index8/index8.component';
 import { Index9Component } from './index9/index9.component';
 
 const routes: Routes = [
-  { path: '', component: Index1Component },
+  { path: '', component: Index9Component },
   { path: 'index1', component: Index1Component },
   { path: 'index2', component: Index2Component },
   { path: 'index3', component: Index3Component },
