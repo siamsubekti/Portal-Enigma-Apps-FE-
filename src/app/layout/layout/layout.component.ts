@@ -45,7 +45,7 @@ export class LayoutComponent implements OnInit {
       document.getElementById('theme_id').classList.add('theme-orange');
     }
     else if (this.router.url == '/index9') {
-      document.getElementById('theme_id').classList.add('theme-yellow');
+      document.getElementById('theme_id').classList.add('theme-orange');
     }
     else { }
   }
