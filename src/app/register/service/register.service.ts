@@ -14,6 +14,6 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
 
   register(register : Register) {
-    return this.http.post<ApiResponse<LoginData>>(this.baseUrl + 'candidate/register', register);
+    return this.http.post<ApiResponse<LoginData>>(this.baseUrl + '/candidate/register', register);
   }
 }
