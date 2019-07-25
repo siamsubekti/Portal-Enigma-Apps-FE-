@@ -11,13 +11,15 @@ import { PasswordForgetComponent } from './password-forget/password-forget.compo
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ParticlesModule } from 'angular-particle';
+import { ActivationRegisterComponent } from './register/activation/activation-register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    PasswordForgetComponent
+    PasswordForgetComponent,
+    ActivationRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,7 @@ import { ParticlesModule } from 'angular-particle';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    ParticlesModule
+    ParticlesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
