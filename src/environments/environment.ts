@@ -4,7 +4,7 @@
 
 export const environment: any = {
   production: false,
-  apiBaseUrl: 'https://dev.enigma.sqrtechno.com/api'
+  apiBaseUrl: 'https://localhost:4200/api'
 };
 
 /*

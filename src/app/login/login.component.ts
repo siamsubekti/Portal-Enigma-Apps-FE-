@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../shared/service/authentication.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Login } from '../shared/model/login.model';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +15,8 @@ export class LoginComponent implements OnInit {
   width: number = 100;
   height: number = 100;
 
-  constructor() { }
+  constructor(private loginservice : AuthenticationService, private formbuilder : FormBuilder, private router : Router) { }
+  formGroup : FormGroup;
 
   ngOnInit() {
     this.myStyle = {
@@ -50,7 +55,38 @@ export class LoginComponent implements OnInit {
       document.body.classList.add('bg-account-pages');
       document.body.classList.add('py-4');
       document.body.classList.add('py-sm-0');
+      this.onLogin();
+      localStorage.getItem(status);
     
   }
+
+  onLogin(){
+    this.formGroup = this.formbuilder.group({
+      username : ['', Validators.required],
+      password : ['', Validators.required],
+    });
+  }
+  
+  submitLogin(){
+    let login = new Login;
+  login.username = this.formGroup.controls['username'].value;
+  login.password = this.formGroup.controls['password'].value;
+  this.loginservice.login(login)
+    .subscribe(
+      resp=>{
+        if(resp.status.code != '200'){
+          throw new Error('Bad response status: ' + resp.status.description);
+        } else{
+          console.log('success');
+          alert("success!");
+          localStorage.setItem('description', 'login sukses')
+          this.router.navigate(['dashboard']);
+        }
+      }, (err) =>{
+         alert('Login Gagal!');
+      }
+    )}
+
+    
 
 }

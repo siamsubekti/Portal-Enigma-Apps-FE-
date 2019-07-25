@@ -12,6 +12,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ParticlesModule } from 'angular-particle';
 import { ActivationRegisterComponent } from './register/activation/activation-register.component';
+import { UnderConstructionComponent } from './dashboard/under-construction.component';
+import { RegisterMessageComponent } from './register/message/register-message.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ActivationRegisterComponent } from './register/activation/activation-re
     LoginComponent,
     RegisterComponent,
     PasswordForgetComponent,
-    ActivationRegisterComponent
+    ActivationRegisterComponent,
+    UnderConstructionComponent,
+    RegisterMessageComponent
   ],
   imports: [
     BrowserModule,
