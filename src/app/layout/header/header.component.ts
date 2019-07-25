@@ -14,9 +14,9 @@ export class HeaderComponent implements AfterViewInit {
   constructor(private scrollSpyService: ScrollSpyService, private router: Router) { }
 
   ngOnInit() {
-  if(this.router.url == "/index1" || this.router.url == "/" )
+  if(this.router.url == "/index9" || this.router.url == "/" )
   {
-    document.querySelector('a[data="id_home"]').setAttribute('style', 'color:#1bbc9d!important');  
+    document.querySelector('a[data="id_home"]').setAttribute('style', 'color:#ff8c00!important');  
   }
   else if(this.router.url == "/index2" || this.router.url == "/index3" || this.router.url == "/index6" || this.router.url == "/index5" || this.router.url == "/index7" || this.router.url == "/index8" || this.router.url == "/index9" )
   {
@@ -74,10 +74,10 @@ console.log(JSON.stringify(self.sections));
           {  }
           else
           {
-            if(this.router.url == "/index1" || this.router.url == "/")
+            if(this.router.url == "/index9" || this.router.url == "/")
             {
-              this.clearMenu('#393f4f');
-              document.querySelector('a[data="id_' + menu + '"]').setAttribute('style', 'color:#1bbc9d!important');
+              this.clearMenu('#ffffff');
+              document.querySelector('a[data="id_' + menu + '"]').setAttribute('style', 'color:#ff8c00!important');
             }
             else if(this.router.url == "/index2" || this.router.url == "/index3" || this.router.url == "/index5" || this.router.url == "/index6" || this.router.url == "/index7" || this.router.url == "/index8" || this.router.url == "/index9")
             {

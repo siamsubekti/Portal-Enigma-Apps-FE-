@@ -8,6 +8,9 @@ import { LayoutModule } from './layout/layout.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PasswordForgetComponent } from './password-forget/password-forget.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ParticlesModule } from 'angular-particle';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,10 @@ import { PasswordForgetComponent } from './password-forget/password-forget.compo
     LayoutModule,
     AppRoutingModule,
     BrowserAnimationsModule,  // Add this only in the root module
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    ParticlesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
