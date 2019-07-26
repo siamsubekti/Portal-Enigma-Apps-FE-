@@ -1,3 +1,5 @@
+import { Status, DataResponse } from 'src/app/shared/model/api-response.model';
+
 export class Register {
   fullname: string;
   username: string;
@@ -8,15 +10,5 @@ export class Register {
 
 export class ApiResponse {
   status: Status;
-  data: Data;
-}
-
-export class Status {
-  code: string;
-  description: string;
-}
-
-export class Data{
-  accountId: string;
-  status: string;
+  data: DataResponse;
 }

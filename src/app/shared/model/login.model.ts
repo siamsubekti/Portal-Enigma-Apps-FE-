@@ -1,3 +1,5 @@
+import { Status } from './api-response.model';
+
 export class Login{
     username: string;
     password: string;
@@ -5,15 +7,10 @@ export class Login{
 
 export class LoginResponse{
     status : Status;
-    data : Data;
+    data : DataLogin;
 }
 
-export class Status{
-    code : string;
-    description: string;
-}
-
-export class Data{
+export class DataLogin{
     accountId : string;
     sessionId : string;
 }

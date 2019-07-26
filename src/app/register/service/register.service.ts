@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Register, Status } from '../model/register.model';
+import { Register } from '../model/register.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ApiResponse } from '../model/register.model';

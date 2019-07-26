@@ -1,15 +1,6 @@
+import { Status, DataResponse } from 'src/app/shared/model/api-response.model';
+
 export class ActivationResponse{
     status: Status;
-    data: Data;
-
-}
-
-export class Status{
-    code: string;
-    description: string;
-}
-
-export class Data{
-    accountId: string;
-    status: string;
+    data: DataResponse;
 }
