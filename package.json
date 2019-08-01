@@ -9,8 +9,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
-    "start:ssl": "ng serve --open --ssl true --ssl-cert ./dev-certs/localhost.crt --ssl-key ./dev-certs/localhost.key",
+    "start:ssl": "ng serve --open --proxy-config proxy.conf.json --ssl true --ssl-cert ./dev-certs/localhost.crt --ssl-key ./dev-certs/localhost.key",
     "build": "ng build",
+    "build:staging": "ng build --configuration=staging",
+    "build:prod": "ng build --configuration=production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -30,6 +32,7 @@
     "@nicky-lenaers/ngx-scroll-to": "^2.0.0",
     "angular-particle": "^1.0.4",
     "core-js": "^2.5.4",
+    "https-proxy-agent": "^2.2.2",
     "ng-animate": "^0.3.4",
     "ng-simple-slideshow": "^1.2.9",
     "ngx-scrollspy": "^1.2.1",

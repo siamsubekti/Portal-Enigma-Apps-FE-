@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { RegisterService } from './service/register.service';
 import { Register } from './model/register.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   width: number = 100;
   height: number = 100;
 
-  constructor(private formbuilder : FormBuilder, private route : Router, private service: RegisterService) { }
+  constructor(private formbuilder : FormBuilder, private service: RegisterService, private router : Router) { }
   formGroup : FormGroup
   data: Register = new Register;
   passwordNotSame: boolean;
@@ -89,7 +89,8 @@ submitForm(){
       if(res.status.code != '201'){
         throw new Error('Bad response status: ' + res.status.description);
       } else{
-        alert(res.status.description);
+        console.log(res.status.description);
+        this.router.navigate(['register/message']);
       }
     }, (err) =>{
       alert(err.error.status.description);
