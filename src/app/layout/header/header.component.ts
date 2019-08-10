@@ -104,7 +104,7 @@ console.log(JSON.stringify(self.sections));
       document.querySelector('a[data="id_home"]').setAttribute('style', 'color:'+color+'!important');
       document.querySelector('a[data="id_services"]').setAttribute('style', 'color:'+color+'!important');
       document.querySelector('a[data="id_features"]').setAttribute('style', 'color:'+color+'!important');
-      document.querySelector('a[data="id_pricing"]').setAttribute('style', 'color:'+color+'!important');
+      // document.querySelector('a[data="id_pricing"]').setAttribute('style', 'color:'+color+'!important');
       document.querySelector('a[data="id_about"]').setAttribute('style', 'color:'+color+'!important');
       document.querySelector('a[data="id_blog"]').setAttribute('style', 'color:'+color+'!important');
       document.querySelector('a[data="id_contact"]').setAttribute('style', 'color:'+color+'!important');

@@ -14,6 +14,7 @@ import { ParticlesModule } from 'angular-particle';
 import { ActivationRegisterComponent } from './register/activation/activation-register.component';
 import { UnderConstructionComponent } from './dashboard/under-construction.component';
 import { RegisterMessageComponent } from './register/message/register-message.component';
+import { ResetPasswordComponent } from './password-forget/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RegisterMessageComponent } from './register/message/register-message.co
     PasswordForgetComponent,
     ActivationRegisterComponent,
     UnderConstructionComponent,
-    RegisterMessageComponent
+    RegisterMessageComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

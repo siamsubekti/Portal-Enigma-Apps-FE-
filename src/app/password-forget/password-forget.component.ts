@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ForgetPassword } from './model/password-forget.model';
+import { PasswordForgetService } from './service/password-forget.service';
 
 @Component({
   selector: 'app-password-forget',
@@ -11,7 +15,10 @@ export class PasswordForgetComponent implements OnInit {
   width: number = 100;
   height: number = 100;
 
-  constructor() { }
+  constructor(private formbuilder : FormBuilder, private service: PasswordForgetService, private router : Router) { }
+
+  formGroup : FormGroup;
+  data: ForgetPassword = new ForgetPassword;
 
   ngOnInit() {
     this.myStyle = {
@@ -50,7 +57,32 @@ export class PasswordForgetComponent implements OnInit {
     document.body.classList.add('bg-account-pages');
     document.body.classList.add('py-4');
     document.body.classList.add('py-sm-0');
+    this.addForm();
   
+}
+
+addForm(){
+  this.formGroup = this.formbuilder.group({
+    username : ['', Validators.required],
+  });
+}
+
+get username() { return this.formGroup.get('username'); }
+
+submitForm(){
+  let forgetPassword = new ForgetPassword;
+  forgetPassword.username = this.formGroup.controls['username'].value;
+  this.service.forgetPassword(forgetPassword).subscribe((res)=> {
+      if(res.status.code != '201'){
+        throw new Error('Bad response status: ' + res.status.description);
+      } else{
+        console.log(res.status.description);
+      }
+    }, (err) =>{
+      alert(err.error.status.description);
+       console.log(err);
+    });
+
 }
 
 }
