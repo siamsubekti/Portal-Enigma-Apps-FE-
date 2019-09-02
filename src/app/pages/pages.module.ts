@@ -1,14 +1,27 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HomeModule } from './home/home.module';
+import { NbMenuModule, NbCardModule, NbIconModule } from '@nebular/theme';
+
+import { ThemeModule } from '../@theme/theme.module';
+import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
+import { ErrorPagesModule } from './errors/error-pages.module';
+import { HomeComponent } from './home/home.component';
+import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
-  declarations: [ ],
   imports: [
-    CommonModule, 
-    HomeModule,
-    PagesRoutingModule
-  ]
+    PagesRoutingModule,
+    ThemeModule,
+    NbMenuModule,
+    NbIconModule,
+    NbCardModule,
+
+    AuthModule,
+    ErrorPagesModule,
+  ],
+  declarations: [
+    PagesComponent,
+    HomeComponent,
+  ],
 })
-export class PagesModule { }
+export class PagesModule {}

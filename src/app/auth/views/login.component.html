@@ -1,0 +1,67 @@
+<div class="vh-100 d-flex align-items-center justify-content-center">
+  <nb-card class="m-0">
+    <nb-card-body>
+      <h1 class="text-center mb-0"><img class="img-fluid" src="../../../../assets/images/enigmacamp.jpeg" width="350" /></h1>
+      <div [nbSpinner]="loading" nbSpinnerStatus="{{ loadingStatus }}" nbSpinnerSize="giant">
+        <div class="col-12 p-0">
+          <p class="lead font-weight-bold form-control-plaintext text-center mb-5 mt-2">Sign In</p>
+        </div>
+        <div *ngIf="displayAlert" class="col-12 p-md-0">
+          <nb-alert [status]="alertMessage.status">{{ alertMessage.message }}</nb-alert>
+        </div>
+        <form [formGroup]="loginForm" method="POST" (ngSubmit)="ngSubmit(loginForm.value, loginForm.valid)">
+          <div class="form-group row">
+            <div class="col-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <nb-icon icon="user-circle" pack="fa-solid"></nb-icon>
+                  </span>
+                </div>
+                <input nbInput shape="rectangle" type="text" class="form-control" placeholder="Username"
+                  formControlName="username" autocomplete="false" autofocus>
+              </div>
+              <small *ngIf="form('username').invalid && (form('username').dirty || form('username').touched)"
+                class="form-text text-danger">
+                <div *ngIf="form('username').errors?.required">
+                  This field is required.
+                </div>
+              </small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <nb-icon icon="key" pack="fa-solid"></nb-icon>
+                  </span>
+                </div>
+                <input nbInput shape="rectangle"  type="password" class="form-control" placeholder="Password"
+                  formControlName="password" autocomplete="false">
+              </div>
+              <small *ngIf="form('password').invalid && (form('password').dirty || form('password').touched)"
+                class="form-text text-danger">
+                <div *ngIf="form('password').errors?.required">
+                  This field is required.
+                </div>
+                <div *ngIf="form('password').errors?.minlength">
+                  Password cannot be less than 5 characters.
+                </div>
+              </small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-12">
+              <button type="submit" nbButton fullWidth status="primary" shape="rectangle"
+                [disabled]="!loginForm.valid">Login</button>
+            </div>
+            <div class="col-12 text-right mt-2">
+              <a routerLink="/auth/password/forgot" class="btn btn-link px-0">Forgot password?</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>
