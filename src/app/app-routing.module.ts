@@ -8,6 +8,10 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
   },
   {
+    path: 'register',
+    loadChildren: () => import('./registration/registration.module').then(m => m.RegistrationModule),
+  },
+  {
     path: '',
     canActivate: [RouteGuardService],
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),

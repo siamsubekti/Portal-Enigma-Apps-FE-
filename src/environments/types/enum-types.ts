@@ -8,6 +8,7 @@ export enum AccountStatus {
   ACTIVE = 'ACTIVE',
   SUSPENDED = 'SUSPENDED',
   BLACKLISTED = 'BLACKLISTED',
+  NEW = 'NEW',
 }
 
 export enum ProfileGender {

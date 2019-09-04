@@ -15,14 +15,14 @@ export const environment = {
   sessionExpiration: 30, // minutes,
   appName: 'Enigma Bootcamp',
   appId: 'efo',
-  apiBaseUrl : 'https://localhost:4300/api',
+  apiBaseUrl : 'https://localhost:4300/api/',
   loginUrl: 'auth/login',
   services: {
     auth: {
-      code: 'AUTH_SERVICES',
-      name: 'Get public auth services.',
-      endpointUrl: 'auth/services',
-      method: 'PUT',
+      code: 'CAND_AUTH_SERVICES',
+      name: 'Get public candidate auth services.',
+      endpointUrl: 'auth/candidate/services',
+      method: 'GET',
       serviceType: 'PUBLIC',
     },
     login: {

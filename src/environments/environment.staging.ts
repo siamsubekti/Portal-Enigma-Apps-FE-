@@ -14,10 +14,10 @@ export const environment = {
   loginUrl: 'auth/login',
   services: {
     auth: {
-      code: 'AUTH_SERVICES',
-      name: 'Get public auth services.',
-      endpointUrl: 'auth/services',
-      method: 'PUT',
+      code: 'CAND_AUTH_SERVICES',
+      name: 'Get public candidate auth services.',
+      endpointUrl: 'auth/candidate/services',
+      method: 'GET',
       serviceType: 'PUBLIC',
     },
     login: {

@@ -36,7 +36,7 @@ export class LoginService {
       let login: Service = new Service();
       login = Object.assign(login, env.services.login);
 
-      this.http.post('AUTH_LOGIN', payload).subscribe( // request(HttpMethod.POST, login, payload).subscribe(
+      this.http.post('CAND_AUTH_LOGIN', payload).subscribe( // request(HttpMethod.POST, login, payload).subscribe(
         (loginResponse: LoginResponse) => {
           if (loginResponse.status.code !== '200') {
             const error = new Error(loginResponse.status.description);

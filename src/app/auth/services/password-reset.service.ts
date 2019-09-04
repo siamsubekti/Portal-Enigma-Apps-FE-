@@ -14,7 +14,7 @@ export class PasswordResetService {
 
   request(payload: { username: string }): Observable<GenericResponse> {
     return new Observable((observer: Observer<GenericResponse>) => {
-      this.http.post('AUTH_PASSWORD_RESET', payload)
+      this.http.post('CAND_AUTH_PASSWORD_RESET', payload)
         .subscribe((response: GenericResponse) => {
           if (response.status.code !== '201') {
             const error = new Error(response.status.description);
@@ -32,7 +32,7 @@ export class PasswordResetService {
 
   update(payload: PasswordReset, params: { [key: string]: string }): Observable<PasswordResetResponse> {
     return new Observable((observer: Observer<PasswordResetResponse>) => {
-      this.http.put('AUTH_PASSWORD_UPDATE', payload, params)
+      this.http.put('CAND_AUTH_PASSWORD_UPDATE', payload, params)
         .subscribe((response: PasswordResetResponse) => {
           if (response.status.code !== '200') {
             const error = new Error(response.status.description);
