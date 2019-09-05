@@ -9,6 +9,7 @@ import { RegistrationRoutingModule } from './registration-routing.module';
 import { RegistrationService } from './service/registration.service';
 import { RegistrationComponent } from './registration.component';
 import { RegistrationFormComponent } from './component/registration-form.component';
+import { RegistrationActivationComponent } from './component/registration-activation.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,10 @@ import { RegistrationFormComponent } from './component/registration-form.compone
     RegistrationRoutingModule,
   ],
   providers: [ RegistrationService ],
-  declarations: [ RegistrationComponent, RegistrationFormComponent ],
+  declarations: [
+    RegistrationComponent,
+    RegistrationFormComponent,
+    RegistrationActivationComponent,
+  ],
 })
 export class RegistrationModule {}

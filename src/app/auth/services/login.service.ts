@@ -22,7 +22,7 @@ export class LoginService {
     logout = Object.assign(logout, env.services.logout);
 
     return new Observable((observer: Observer<boolean>) => {
-      this.http.delete('AUTH_LOGOUT')
+      this.http.delete('CAND_AUTH_LOGOUT')
         .subscribe(() => {
           observer.next(true);
         }, (error) => {

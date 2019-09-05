@@ -54,6 +54,8 @@ export class RegistrationFormComponent implements OnInit {
               status: 'success',
               message: 'Please check your email and follow the instruction to activate your account.',
             };
+
+            this.displayAlert = true;
           // else console.log('data: ', data);
         }, (errorResponse) => {
           const { error: { status } } = errorResponse;

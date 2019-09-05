@@ -34,6 +34,15 @@ export class AuthService {
     return this.auth ? this.auth.data.account : null;
   }
 
+  set user(newData: Account) {
+    const auth: Credential = this.auth;
+
+    if (auth && auth.data) {
+      auth.data.account = newData;
+      this.auth = auth;
+    }
+  }
+
   get authenticated(): boolean {
     return ( this.auth && this.auth.authenticated );
   }

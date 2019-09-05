@@ -29,9 +29,9 @@ export class RegistrationService {
     });
   }
 
-  activate(payload: RegistrationForm, key: string, token: string): Observable<RegistrationResponse> {
+  activate(key: string, token: string): Observable<RegistrationResponse> {
     return new Observable((observer: Observer<RegistrationResponse>) => {
-      this.http.post('CAND_ACCOUNT_ACTIVATION', payload, { key, token })
+      this.http.post('CAND_ACCOUNT_ACTIVATION', undefined, { key, token })
         .subscribe((response: ApiResponse) => {
           if (response.status.code !== '201') {
             const error = new Error(response.status.description);
