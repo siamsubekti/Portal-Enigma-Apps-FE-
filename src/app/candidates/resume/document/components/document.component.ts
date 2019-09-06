@@ -1,9 +1,13 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { AlertMessage } from '../../../../../environments/environment';
+import { AlertMessage, environment } from '../../../../../environments/environment';
 import { DocumentService } from '../services/document.service';
-import { Router } from '@angular/router';
+import { Router, Params } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ApiResponse } from '../../../../shared/http/responses.model';
+import { NbToastrService } from '@nebular/theme';
+import { Account } from '../../../../master/models';
+import { AuthService } from '../../../../auth/services/auth.service';
 
 @Component({
   selector: 'ngx-document',
@@ -11,6 +15,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['../views/document.component.scss'],
 })
 export class DocumentComponent implements OnInit {
+  baseUrl = environment.apiBaseUrl;
   formGroup: FormGroup;
   result = new EventEmitter();
   loading: boolean = false;
@@ -19,13 +24,19 @@ export class DocumentComponent implements OnInit {
   alertMessage: AlertMessage;
   payload: any;
   fileToUpload: File = null;
+  account: Account;
+  params: Params;
+  candidates: Array<{documents: string[]}> = [];
 
   constructor(
     private readonly router: Router,
     private readonly documentService: DocumentService,
+    private readonly toastr: NbToastrService,
+    private readonly authService: AuthService,
   ) { }
 
   ngOnInit() {
+    this.downloadDocument();
   }
 
   ngSubmit(payload: any, valid: boolean) {
@@ -57,10 +68,29 @@ handleFileInput(files: FileList) {
 
 uploadFileToActivity() {
   this.documentService.uploadDocument(this.fileToUpload).subscribe(data => {
-    alert(data);
-  }, error => {
-    alert(error);
+    this.loading = false;
+    this.toastr.success(`File has been Upload!`, 'Menu Upload.', { icon: 'upload', iconPack: 'fa-solid'});
+    this.downloadDocument();
+  }, (error: HttpErrorResponse) => {
+    this.loading = false;
+    this.toastr.danger(`Unable to upload document data ${error.status} ${error.statusText}).`, 'Error');
   });
 }
+
+downloadDocument() {
+    const account: Account = this.authService.user;
+    this.documentService.getDocument(account.id)
+    .subscribe((resp: ApiResponse) => {
+      if (Array.isArray(resp.data) && resp.data.length > 0)
+      this.candidates.push({
+        documents: resp.data,
+      });
+      else
+        this.candidates = [];
+    }, (error: HttpErrorResponse) => {
+      this.loading = false;
+      this.toastr.danger(`Unable to retrieve candidates document data ${error.status} ${error.statusText}).`, 'Error');
+    });
+  }
 
 }

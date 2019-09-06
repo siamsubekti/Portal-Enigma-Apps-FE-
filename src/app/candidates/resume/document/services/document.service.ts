@@ -24,7 +24,7 @@ export class DocumentService {
 
   uploadDocument(fileToUpload: File): Observable<ApiResponse> {
     const formData: FormData = new FormData();
-    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    formData.append('file', fileToUpload, fileToUpload.name);
     return new Observable((observer: Observer<ApiResponse>) => {
       this.httpService.post('RES_DOCUMENT_UPLOAD', formData)
         .subscribe((response: ApiResponse) => {
@@ -35,6 +35,22 @@ export class DocumentService {
         }, (error) => {
           observer.error(error);
         });
+    });
+  }
+
+  getDocument(accountId: string ): Observable<ApiResponse> {
+    return new Observable((observer: Observer<ApiResponse>) => {
+    this.httpService.get('CAND_DOCUMENT_LINK', {accountId})
+    .subscribe((response: ApiResponse) => {
+      if (response.status.code !== '200')
+        observer.error(this.rebuildErrorResponse(response.status));
+      else
+        observer.next(response);
+    }, (error) => {
+      console.error('servicesRole error:', error);
+      observer.error(error);
+    });
+
     });
   }
 }
