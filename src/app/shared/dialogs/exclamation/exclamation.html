@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-10 mx-auto">
+    <nb-card accent="primary">
+      <nb-card-header>
+        <div class="title float-left">{{ title }}</div>
+        <div class="buttons float-right">
+          <button nbButton ghost size="small" (click)="dismiss()">
+            <nb-icon pack="fa-solid" icon="times" class="text-body"></nb-icon>
+          </button>
+        </div>
+      </nb-card-header>
+      <nb-card-body class="py-4">
+        <div class="media">
+          <div class="align-self-start mr-3">
+            <i class="fas fa-exclamation-circle fa-3x text-primary"></i>
+          </div>
+          <div class="media-body">
+            <p [innerHTML]="text"></p>
+          </div>
+        </div>
+      </nb-card-body>
+      <nb-card-footer class="text-right">
+        <button nbButton status="primary" size="small" (click)="confirm()" autofocus>OK</button>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>

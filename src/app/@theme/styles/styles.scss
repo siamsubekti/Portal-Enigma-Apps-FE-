@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+
+// themes - our custom or/and out of the box themes
+@import 'themes';
+
+// framework component themes (styles tied to theme variables)
+@import '~@nebular/theme/styles/globals';
+@import '~@nebular/auth/styles/all';
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/grid';
+@import '~@ng-select/ng-select/themes/default.theme.css';
+
+// loading progress bar theme
+@import './pace.theme';
+
+@import './layout';
+@import './overrides';
+
+// install the framework and custom global styles
+@include nb-install() {
+
+  // framework global styles
+  @include nb-theme-global();
+  // @include nb-auth-global();
+
+  @include ngx-layout();
+  // loading progress bar
+  @include ngx-pace-theme();
+
+  @include nb-overrides();
+};
+
+.nb-theme-default {
+  nb-spinner {
+    z-index: 1030 !important;
+  }
+
+  nb-sidebar .scrollable {
+    padding-top: 0.75rem !important;
+  }
+
+  nb-layout-header {
+    color: #ffffff;
+    background: linear-gradient(to left, #233d90, #4a69b2);
+    background: url(../../../assets/images/particles.png) top left no-repeat;
+    background-size: cover;
+
+    nb-layout .layout {
+      background-color: linear-gradient(to left, #233d90, #4a69b2);
+    }
+
+    nav {
+      background: none !important;
+      box-shadow: 0 0.5rem 1rem 0 rgba(44, 51, 73, 0.5);
+
+      a {
+        color: #ffffff !important;
+      }
+    }
+  }
+
+  .header-container .sidebar-toggle {
+      color: #ffffff;
+  }
+
+  nb-user {
+    .user-picture {
+      background-color: #ffffff;
+    }
+
+    .user-name {
+      color: #ffffff;
+      font-weight: bold;
+    }
+  }
+
+  .input-group-text {
+    background-color: #f7f9fc;
+    border-color: #edf1f7;
+  }
+
+  table.table {
+    th {
+      text-align: center;
+    }
+
+    th, td {
+      vertical-align: middle;
+    }
+  }
+
+  [nbInput]:not(.input-full-width) {
+    max-width: unset !important;
+  }
+}

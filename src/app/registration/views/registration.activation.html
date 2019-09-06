@@ -1,0 +1,20 @@
+<div class="vh-100 d-flex align-items-center justify-content-center">
+  <nb-card class="m-0 px-0">
+      <nb-card-body>
+        <h1 class="text-center mb-0 mx-5"><img class="img-fluid" src="../../../../assets/images/enigmacamp.jpeg" width="350" /></h1>
+        <div class="col-12 p-0">
+          <p class="lead font-weight-bold form-control-plaintext text-center mt-2">Account Activation</p>
+        </div>
+      </nb-card-body>
+      <nb-card-body [nbSpinner]="loading" nbSpinnerStatus="primary" nbSpinnerSize="giant">
+        <div class="col-12 p-0">
+          <nb-alert [status]="alertMessage.status">{{ alertMessage.message }}</nb-alert>
+        </div>
+        <div *ngIf="accountActivated" class="col-12 p-0">
+          <a routerLink="/auth/login" class="btn btn-link btn-block">
+            Proceed to Login <nb-icon pack="fa-solid" icon="sign-in-alt"></nb-icon>
+          </a>
+        </div>
+      </nb-card-body>
+  </nb-card>
+</div>

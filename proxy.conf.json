@@ -1,8 +1,10 @@
 {
-  "/api": {
-    "target": "https://dev.enigma.sqrtechno.com",
-    "secure": false,
-    "https:": true
-    
+    "/api": {
+      "target": "https://localhost:3000",
+      "secure": false,
+      "https:": true,
+      "pathRewrite": {
+            "^/api" : ""
+      }
+    }
   }
-}

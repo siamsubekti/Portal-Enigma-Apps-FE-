@@ -1,0 +1,23 @@
+<ul *ngIf="pager && pager.totalPages > 1" class="pagination justify-content-{{ position }} {{ paginationSizes[ size ] }}">
+  <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+    <a class="page-link" routerLink="{{ link }}" [queryParams]="{ term: term, page: 1, order: order, sort: sort }">First</a>
+  </li>
+  <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+    <a class="page-link" routerLink="{{ link }}" [queryParams]="{ term: term, page: (pager.currentPage - 1), order: order, sort: sort }">
+      <nb-icon pack="fa-solid" icon="angle-double-left"></nb-icon>
+    </a>
+  </li>
+
+  <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item">
+    <a class="page-link" routerLink="{{ link }}" [queryParams]="{ term: term, page: page, order: order, sort: sort }">{{ page }}</a>
+  </li>
+
+  <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+    <a class="page-link" routerLink="{{ link }}" [queryParams]="{ term: term, page: (pager.currentPage + 1), order: order, sort: sort }">
+      <nb-icon pack="fa-solid" icon="angle-double-right"></nb-icon>
+    </a>
+  </li>
+  <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+    <a class="page-link" routerLink="{{ link }}" [queryParams]="{ term: term, page: (pager.totalPages), order: order, sort: sort }">Last</a>
+  </li>
+</ul>

@@ -1,0 +1,119 @@
+<div class="vh-100 d-flex align-items-center justify-content-center">
+  <nb-card class="m-0 px-0 col-5">
+    <nb-card-body [nbSpinner]="loading" nbSpinnerStatus="primary" nbSpinnerSize="giant">
+      <h1 class="text-center mb-0 mx-5"><img class="img-fluid" src="../../../../assets/images/enigmacamp.jpeg" width="350" /></h1>
+      <div class="col-12 p-0">
+        <p class="lead font-weight-bold form-control-plaintext text-center mb-5 mt-2">Registration Form</p>
+      </div>
+      <div *ngIf="displayAlert" class="col-12 p-md-0">
+        <nb-alert [status]="alertMessage.status">{{ alertMessage.message }}</nb-alert>
+      </div>
+      <form [formGroup]="registrationForm" method="POST" (ngSubmit)="ngSubmit(registrationForm.value, registrationForm.valid)">
+        <div class="form-group row">
+          <label for="fullname" class="col-4 text-nowrap col-form-label">Fullname</label>
+          <div class="col-8">
+            <input type="text" nbInput shape="rectangle" class="form-control" placeholder="Fullname"
+              formControlName="fullname" nbInput shape="rectangle" autocomplete="false" />
+          </div>
+          <div class="col-12">
+            <small *ngIf="form('fullname').invalid && (form('fullname').dirty || form('fullname').touched)" class="form-text text-danger">
+              <div *ngIf="form('fullname').errors?.required">
+                This field is required.
+              </div>
+              <div *ngIf="form('fullname').errors?.minlength">
+                Fullname cannot be less than 3 characters.
+              </div>
+            </small>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="username" class="col-4 text-nowrap col-form-label">Email</label>
+          <div class="col-8">
+            <input type="text" nbInput shape="rectangle" class="form-control" placeholder="Email Address"
+              formControlName="username" nbInput shape="rectangle" autocomplete="false" />
+          </div>
+          <div class="col-12">
+            <small *ngIf="form('username').invalid && (form('username').dirty || form('username').touched)" class="form-text text-danger">
+              <div *ngIf="form('username').errors?.required">
+                This field is required.
+              </div>
+              <div *ngIf="form('username').errors?.email">
+                This field must be in a valid email address format.
+              </div>
+            </small>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="password" class="col-4 text-nowrap col-form-label">Password</label>
+          <div class="col-8">
+            <input type="password" class="form-control" placeholder="New Password"
+              formControlName="password" nbInput shape="rectangle" autocomplete="false" />
+          </div>
+          <div class="col-12">
+            <small *ngIf="form('password').invalid && (form('password').dirty || form('password').touched)" class="form-text text-danger">
+              <div *ngIf="form('password').errors?.required">
+                This field is required.
+              </div>
+              <div *ngIf="form('password').errors?.minlength">
+                Password cannot be less than 6 characters.
+              </div>
+            </small>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="cofirmPassword" class="col-4 text-nowrap col-form-label">Confirm Password</label>
+          <div class="col-8">
+            <input type="password" class="form-control" placeholder="Confirm Password"
+              formControlName="confirmPassword" nbInput shape="rectangle" autocomplete="false" />
+          </div>
+          <div class="col-12">
+            <small
+              *ngIf="form('confirmPassword').invalid && (form('confirmPassword').dirty || form('confirmPassword').touched)"
+              class="form-text text-danger">
+              <div *ngIf="form('confirmPassword').errors?.required">
+                This field is required and must be the exact same value as your new password.
+              </div>
+            </small>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="phone" class="col-4 text-nowrap col-form-label">Phone Number</label>
+          <div class="col-8">
+            <input type="text" nbInput shape="rectangle" class="form-control" placeholder="0876543210"
+              formControlName="phone" nbInput shape="rectangle" autocomplete="false" />
+          </div>
+          <div class="col-12">
+            <small *ngIf="form('phone').invalid && (form('phone').dirty || form('phone').touched)" class="form-text text-danger">
+              <div *ngIf="form('phone').errors?.required">
+                This field is required.
+              </div>
+              <div *ngIf="form('phone').errors?.minlength">
+                Phone number cannot be less than 6 characters.
+              </div>
+            </small>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="birthDate" class="col-4 text-nowrap col-form-label">Birthday</label>
+          <div class="col-8">
+            <input type="date" nbInput shape="rectangle" class="form-control" placeholder="Birthday"
+              formControlName="birthDate" nbInput shape="rectangle" autocomplete="false" />
+          </div>
+          <div class="col-12">
+            <small *ngIf="form('birthDate').invalid && (form('birthDate').dirty || form('birthDate').touched)" class="form-text text-danger">
+              <div *ngIf="form('birthDate').errors?.required">
+                This field is required.
+              </div>
+            </small>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-8 offset-4">
+            <button type="submit" nbButton fullWidth status="primary" shape="rectangle"
+              [disabled]="!registrationForm.valid">Submit</button>
+          </div>
+        </div>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</div>
