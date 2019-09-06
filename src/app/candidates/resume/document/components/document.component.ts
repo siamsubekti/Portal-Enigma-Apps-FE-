@@ -26,7 +26,7 @@ export class DocumentComponent implements OnInit {
   fileToUpload: File = null;
   account: Account;
   params: Params;
-  candidates: Array<{documents: string[]}> = [];
+  documents: Array<{link: string, name: string}> = [];
 
   constructor(
     private readonly router: Router,
@@ -81,12 +81,16 @@ downloadDocument() {
     const account: Account = this.authService.user;
     this.documentService.getDocument(account.id)
     .subscribe((resp: ApiResponse) => {
-      if (Array.isArray(resp.data) && resp.data.length > 0)
-      this.candidates.push({
-        documents: resp.data,
-      });
-      else
-        this.candidates = [];
+      if (Array.isArray(resp.data) && resp.data.length > 0) {
+        const { data: docs } = resp;
+        this.documents = docs.map((x: string) => {
+          return {
+            link: x,
+            name: x.split('/').pop(),
+          };
+        });
+      } else
+        this.documents = [];
     }, (error: HttpErrorResponse) => {
       this.loading = false;
       this.toastr.danger(`Unable to retrieve candidates document data ${error.status} ${error.statusText}).`, 'Error');

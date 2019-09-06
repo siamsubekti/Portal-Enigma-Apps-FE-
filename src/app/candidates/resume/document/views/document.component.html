@@ -1,21 +1,24 @@
 <div class="row">
-    <div class="col-12">
-        <nb-card [nbSpinner]="loading" nbSpinnerStatus="primary" nbSpinnerSize="giant">
-            <nb-card-header>
-                Upload CV
-            </nb-card-header>
-            <nb-card-body>
-                <div class="form-group">
-                    <input type="file" id="file" (change)="handleFileInput($event.target.files)">
-                    <button nbButton shape="rectangle" status="primary" size="tiny" class="mx-1"
-                        (click)="uploadFileToActivity()">
-                        <nb-icon pack="fa-solid" icon="upload"></nb-icon>&emsp;Upload
-                    </button>
-                    <a *ngFor="let link of candidates"  href="{{baseUrl}}/{{link.documents}}" nbButton shape="rectangle" status="success" size="tiny" target="_blank">
-                        <nb-icon pack="fa-solid" icon="download"></nb-icon>&emsp;Download CV
-                    </a>
-                </div>
-            </nb-card-body>
-        </nb-card>
-    </div>
+  <div class="col-12">
+    <nb-card [nbSpinner]="loading" nbSpinnerStatus="primary" nbSpinnerSize="giant">
+      <nb-card-header>
+        Upload CV
+      </nb-card-header>
+      <nb-card-body>
+        <div class="form-group">
+          <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+          <button nbButton shape="rectangle" status="primary" size="tiny" class="mx-1" (click)="uploadFileToActivity()">
+            <nb-icon pack="fa-solid" icon="upload"></nb-icon>&emsp;Upload
+          </button>
+        </div>
+      </nb-card-body>
+      <nb-list *ngIf="documents.length > 0">
+        <nb-list-item *ngFor="let doc of documents">
+          <a href="{{baseUrl}}{{doc.link}}" target="_blank" nbButton ghost fullWidth>
+            <nb-icon pack="fa-solid" icon="download"></nb-icon>&emsp;Download {{ doc.name }}
+          </a>
+        </nb-list-item>
+      </nb-list>
+    </nb-card>
+  </div>
 </div>

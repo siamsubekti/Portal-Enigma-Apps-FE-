@@ -7,7 +7,8 @@ export class RegistrationForm {
   password: string;
   confirmPassword: string;
   phone: string;
-  birthDate: Date;
+  birthdate: Date;
+  captcha: CaptchaDTO;
 }
 
 export class RegistrationResponse {
@@ -16,4 +17,19 @@ export class RegistrationResponse {
     accountId: string;
     status: AccountStatus;
   };
+}
+
+export class CaptchaDTO {
+  token: string;
+  answer: string;
+}
+
+export class CaptchaResponseDTO {
+  token: string;
+  image: string;
+}
+
+export class CaptchaResponse {
+  status: ResponseStatus;
+  data: CaptchaResponseDTO;
 }

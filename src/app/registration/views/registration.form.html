@@ -15,7 +15,7 @@
             <input type="text" nbInput shape="rectangle" class="form-control" placeholder="Fullname"
               formControlName="fullname" nbInput shape="rectangle" autocomplete="false" />
           </div>
-          <div class="col-12">
+          <div class="col-8 offset-4">
             <small *ngIf="form('fullname').invalid && (form('fullname').dirty || form('fullname').touched)" class="form-text text-danger">
               <div *ngIf="form('fullname').errors?.required">
                 This field is required.
@@ -32,7 +32,7 @@
             <input type="text" nbInput shape="rectangle" class="form-control" placeholder="Email Address"
               formControlName="username" nbInput shape="rectangle" autocomplete="false" />
           </div>
-          <div class="col-12">
+          <div class="col-8 offset-4">
             <small *ngIf="form('username').invalid && (form('username').dirty || form('username').touched)" class="form-text text-danger">
               <div *ngIf="form('username').errors?.required">
                 This field is required.
@@ -49,7 +49,7 @@
             <input type="password" class="form-control" placeholder="New Password"
               formControlName="password" nbInput shape="rectangle" autocomplete="false" />
           </div>
-          <div class="col-12">
+          <div class="col-8 offset-4">
             <small *ngIf="form('password').invalid && (form('password').dirty || form('password').touched)" class="form-text text-danger">
               <div *ngIf="form('password').errors?.required">
                 This field is required.
@@ -66,7 +66,7 @@
             <input type="password" class="form-control" placeholder="Confirm Password"
               formControlName="confirmPassword" nbInput shape="rectangle" autocomplete="false" />
           </div>
-          <div class="col-12">
+          <div class="col-8 offset-4">
             <small
               *ngIf="form('confirmPassword').invalid && (form('confirmPassword').dirty || form('confirmPassword').touched)"
               class="form-text text-danger">
@@ -82,7 +82,7 @@
             <input type="text" nbInput shape="rectangle" class="form-control" placeholder="0876543210"
               formControlName="phone" nbInput shape="rectangle" autocomplete="false" />
           </div>
-          <div class="col-12">
+          <div class="col-8 offset-4">
             <small *ngIf="form('phone').invalid && (form('phone').dirty || form('phone').touched)" class="form-text text-danger">
               <div *ngIf="form('phone').errors?.required">
                 This field is required.
@@ -94,15 +94,39 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="birthDate" class="col-4 text-nowrap col-form-label">Birthday</label>
+          <label for="birthdate" class="col-4 text-nowrap col-form-label">Birthday</label>
           <div class="col-8">
             <input type="date" nbInput shape="rectangle" class="form-control" placeholder="Birthday"
-              formControlName="birthDate" nbInput shape="rectangle" autocomplete="false" />
+              formControlName="birthdate" nbInput shape="rectangle" autocomplete="false" />
           </div>
-          <div class="col-12">
-            <small *ngIf="form('birthDate').invalid && (form('birthDate').dirty || form('birthDate').touched)" class="form-text text-danger">
-              <div *ngIf="form('birthDate').errors?.required">
+          <div class="col-8 offset-4">
+            <small *ngIf="form('birthdate').invalid && (form('birthdate').dirty || form('birthdate').touched)" class="form-text text-danger">
+              <div *ngIf="form('birthdate').errors?.required">
                 This field is required.
+              </div>
+            </small>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div #captchaContainer class="col-6 offset-4"></div>
+          <div class="col-1 pl-0 d-flex ">
+            <button nbButton ghost fullWidth size="small" class="align-self-end" (click)="getCaptcha()">
+              <nb-icon pack="fa-solid" icon="sync-alt"></nb-icon>
+            </button>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-8 offset-4">
+            <input type="text" nbInput shape="rectangle" class="form-control" placeholder="Please type the characters you see above."
+              formControlName="captchaAnswer" nbInput shape="rectangle" autocomplete="false" />
+          </div>
+          <div class="col-8 offset-4">
+            <small *ngIf="form('captchaAnswer').invalid && (form('captchaAnswer').dirty || form('captchaAnswer').touched)" class="form-text text-danger">
+              <div *ngIf="form('captchaAnswer').errors?.required">
+                This field is required.
+              </div>
+              <div *ngIf="form('captchaAnswer').errors?.minlength">
+                Phone number cannot be less than 5 characters.
               </div>
             </small>
           </div>
