@@ -21,6 +21,10 @@ const routes: Routes = [{
       component: CandidateProfileComponent,
     },
     {
+      path : 'my-resume',
+      loadChildren: () => import('../candidates/resume/resume.module').then(m => m.ResumeModule),
+    },
+    {
       path: '**',
       component: NotFoundComponent,
     },
