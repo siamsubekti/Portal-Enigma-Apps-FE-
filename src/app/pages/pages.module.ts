@@ -7,6 +7,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { ErrorPagesModule } from './errors/error-pages.module';
 import { HomeComponent } from './home/home.component';
 import { AuthModule } from '../auth/auth.module';
+import { CandidateModule } from '../candidates/candidate.module';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { AuthModule } from '../auth/auth.module';
 
     AuthModule,
     ErrorPagesModule,
+    CandidateModule,
   ],
   declarations: [
     PagesComponent,

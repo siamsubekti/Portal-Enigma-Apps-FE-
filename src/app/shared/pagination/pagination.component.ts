@@ -15,16 +15,16 @@ export class PaginationComponent implements OnChanges {
   @Input('position') position: 'start' | 'center' | 'end' = 'start';
   @Input('size') size: 'small' | 'normal' | 'large' = 'normal';
 
-  protected paginationSizes = {
+  paginationSizes = {
     small: 'pagination-sm',
     normal: '',
     large: 'pagination-lg',
   };
 
-  protected pager: PagingConfig;
-  protected term: string;
-  protected order: string;
-  protected sort: string;
+  pager: PagingConfig;
+  term: string;
+  order: string;
+  sort: string;
 
   constructor(private readonly service: PaginationService) {}
 

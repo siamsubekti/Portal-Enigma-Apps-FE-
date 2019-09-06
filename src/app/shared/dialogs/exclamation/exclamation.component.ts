@@ -11,7 +11,7 @@ export class ExclamationComponent {
   @Input() title: string;
   @Input() text: string;
 
-  constructor(protected ref: NbDialogRef<ExclamationComponent>) {}
+  constructor(private readonly ref: NbDialogRef<ExclamationComponent>) {}
 
   dismiss() {
     this.ref.close(false);

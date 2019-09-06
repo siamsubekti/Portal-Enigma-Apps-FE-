@@ -35,7 +35,7 @@ export class ForgotPasswordComponent implements OnInit {
     });
   }
 
-  protected form(property): AbstractControl {
+  form(property): AbstractControl {
     return this.forgetfulForm.get(property);
   }
 

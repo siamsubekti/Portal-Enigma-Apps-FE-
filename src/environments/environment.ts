@@ -16,6 +16,7 @@ export const environment = {
   appName: 'Enigma Bootcamp',
   appId: 'efo',
   apiBaseUrl : 'https://localhost:4300/api/',
+  uiAvatarBaseUrl: 'https://ui-avatars.com/api',
   loginUrl: 'auth/login',
   services: {
     auth: {

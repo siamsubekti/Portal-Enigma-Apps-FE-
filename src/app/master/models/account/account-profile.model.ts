@@ -10,7 +10,7 @@ export class AccountProfile {
     gender: string;
     religion: string;
     maritalStatus: string;
-    roles: Role[];
+    roles?: Role[];
     newPassword?: string;
     confirmPassword?: string;
     currentPassword?: string;

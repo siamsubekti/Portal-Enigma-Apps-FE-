@@ -10,7 +10,7 @@ export class DeleteConfirmationComponent {
 
   @Input() text: string;
 
-  constructor(protected ref: NbDialogRef<DeleteConfirmationComponent>) {}
+  constructor(private readonly ref: NbDialogRef<DeleteConfirmationComponent>) {}
 
   dismiss() {
     this.ref.close(false);

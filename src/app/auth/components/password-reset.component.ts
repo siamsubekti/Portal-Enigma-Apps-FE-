@@ -40,7 +40,7 @@ export class PasswordResetComponent implements OnInit {
     });
   }
 
-  protected form(property): AbstractControl {
+  form(property): AbstractControl {
     return this.passwordForm.get(property);
   }
 

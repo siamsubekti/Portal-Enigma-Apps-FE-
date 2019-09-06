@@ -10,7 +10,7 @@ export const environment = {
   sessionExpiration: 30, // minutes,
   appName: 'Enigma Bootcamp',
   appId: 'efo',
-  apiBaseUrl : 'https://localhost:4300/api',
+  apiBaseUrl : 'https://enigmacamp.com/api/',
   loginUrl: 'auth/login',
   services: {
     auth: {

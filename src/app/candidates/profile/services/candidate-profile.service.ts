@@ -29,6 +29,7 @@ export class CandidateProfileService {
 
             observer.error(new HttpErrorResponse({ error, status: +status.code, statusText: status.description }));
           } else {
+            data.profile.birthdate = payload.birthdate;
             this.authService.user = data;
             observer.next(data);
           }

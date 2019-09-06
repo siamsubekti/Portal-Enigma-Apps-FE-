@@ -1,1 +1,150 @@
-
+<nb-card [nbSpinner]="loading" nbSpinnerStatus="primary" nbSpinnerSize="giant">
+  <nb-card-body>
+    <div *ngIf="displayAlert" class="col-12 p-md-0">
+      <nb-alert [status]="alertMessage.status">{{ alertMessage.message }}</nb-alert>
+    </div>
+    <div class="media">
+      <img src="{{ env.uiAvatarBaseUrl }}?name={{ account.profile.fullname }}&background=4a69b2&color=ffffff&size=128" class="align-self-start mr-4 mt-2" alt="{{ account.profile.fullname }}">
+      <div class="media-body">
+        <h5 class="mt-0 mb-3">{{ account.profile.fullname }} Profile</h5>
+        <form [formGroup]="candidateForm" method="POST" (submit)="ngSubmitForm(candidateForm.value, candidateForm.valid)">
+          <div class="form-group row">
+            <label for="fullname" class="col-2 col-form-label font-weight-bold">Fullname</label>
+              <section class="col-6">
+                <input type="text" class="form-control" formControlName="fullname" nbInput shape="rectangle" [hidden]="hiddenInput" />
+                <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.fullname }}</p>
+              </section>
+              <div class="col-8">
+                <small *ngIf="form('fullname').invalid && (form('fullname').dirty || form('fullname').touched)"
+                class="form-text text-danger">
+                <div *ngIf="form('fullname').errors?.required">
+                  This field is required.
+                </div>
+              </small>
+              </div>
+          </div>
+          <div class="form-group row">
+            <label for="nickname" class="col-2 col-form-label font-weight-bold">Nickname</label>
+            <section class="col-6">
+              <input type="text" class="form-control" formControlName="nickname" nbInput shape="rectangle" [hidden]="hiddenInput" />
+              <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.nickname }}</p>
+            </section>
+            <div class="col-8">
+              <small *ngIf="form('nickname').invalid && (form('nickname').dirty || form('nickname').touched)"
+              class="form-text text-danger">
+              <div *ngIf="form('nickname').errors?.required">
+                This field is required.
+              </div>
+            </small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="email" class="col-2 col-form-label font-weight-bold">Email</label>
+            <section class="col-6">
+              <input type="email" class="form-control" formControlName="email" nbInput shape="rectangle" [hidden]="hiddenInput" />
+              <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.email }}</p>
+            </section>
+            <div class="col-8">
+              <small *ngIf="form('email').invalid && (form('email').dirty || form('email').touched)"
+              class="form-text text-danger">
+              <div *ngIf="form('email').errors?.required">
+                This field is required.
+              </div>
+              <div *ngIf="form('email').errors?.email">
+                This field must be a valid email address.
+              </div>
+            </small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="phone" class="col-2 col-form-label font-weight-bold">Phone</label>
+            <section class="col-6">
+              <input type="text" class="form-control" formControlName="phone" nbInput shape="rectangle" [hidden]="hiddenInput" />
+              <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.phone }}</p>
+            </section>
+            <div class="col-8">
+              <small *ngIf="form('phone').invalid && (form('phone').dirty || form('phone').touched)"
+              class="form-text text-danger">
+              <div *ngIf="form('phone').errors?.required">
+                This field is required.
+              </div>
+              <div *ngIf="form('phone').errors?.minlength">
+                This field value must be at least 8 characters long.
+              </div>
+            </small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="birthdate" class="col-2 col-form-label font-weight-bold">Birthdate</label>
+            <section class="col-6">
+              <input type="date" class="form-control" formControlName="birthdate" nbInput shape="rectangle" [hidden]="hiddenInput" />
+              <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.birthdate | date : 'd-MMM-yyyy' }} <strong>({{ account.profile.birthdate | ngxAgePipe }})</strong></p>
+            </section>
+            <div class="col-8">
+              <small *ngIf="form('birthdate').invalid && (form('birthdate').dirty || form('birthdate').touched)"
+              class="form-text text-danger">
+              <div *ngIf="form('birthdate').errors?.required">
+                This field is required.
+              </div>
+            </small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="gender" class="col-2 col-form-label font-weight-bold">Gender</label>
+            <section class="col-6">
+              <ng-select [items]="genders" formControlName="gender" labelForId="gender" placeholder="Select Your Gender" [hidden]="hiddenInput"></ng-select>
+              <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.gender }}</p>
+            </section>
+            <div class="col-8">
+              <small *ngIf="form('gender').invalid && (form('gender').dirty || form('gender').touched)"
+              class="form-text text-danger">
+              <div *ngIf="form('gender').errors?.required">
+                This field is required.
+              </div>
+            </small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="religion" class="col-2 col-form-label font-weight-bold">Religion</label>
+            <section class="col-6">
+              <ng-select [items]="religions" formControlName="religion" labelForId="religion" placeholder="Select Your Religion" [hidden]="hiddenInput"></ng-select>
+              <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.religion }}</p>
+            </section>
+            <div class="col-8">
+              <small *ngIf="form('religion').invalid && (form('religion').dirty || form('religion').touched)"
+              class="form-text text-danger">
+              <div *ngIf="form('religion').errors?.required">
+                This field is required.
+              </div>
+            </small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="maritalStatus" class="col-2 col-form-label font-weight-bold">Marital Status</label>
+            <section class="col-6">
+              <ng-select [items]="maritalStatuses" formControlName="maritalStatus" labelForId="maritalStatus" placeholder="Select Your Marital Status" [hidden]="hiddenInput"></ng-select>
+              <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.maritalStatus }}</p>
+            </section>
+            <div class="col-8">
+              <small *ngIf="form('maritalStatus').invalid && (form('maritalStatus').dirty || form('maritalStatus').touched)"
+              class="form-text text-danger">
+              <div *ngIf="form('maritalStatus').errors?.required">
+                This field is required.
+              </div>
+            </small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <section class="col-2 offset-2">
+              <button type="button" nbButton shape="rectangle" status="primary" class="m-0" (click)="ngToggleEdit()" fullWidth [hidden]="hiddenText">Edit</button>
+              <button type="submit" nbButton shape="rectangle" status="primary" class="m-0" fullWidth [hidden]="hiddenInput" [disabled]="!candidateForm.valid">Save</button>
+            </section>
+            <section class="col-2">
+              <button type="button" nbButton shape="rectangle" status="warning" class="m-0" (click)="ngToggleEdit()" fullWidth [hidden]="hiddenInput">Cancel</button>
+            </section>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

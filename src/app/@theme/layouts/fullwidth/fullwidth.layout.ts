@@ -14,5 +14,5 @@ import { Component, Input } from '@angular/core';
   `,
 })
 export class FullWidthLayoutComponent {
-  @Input('classes') protected classes: string;
+  @Input('classes') classes: string;
 }

@@ -13,7 +13,7 @@ const routes: Routes = [{
       redirectTo: 'candidate',
     },
     {
-      path: 'candidate',
+      path: 'form',
       component: RegistrationFormComponent,
     },
     {

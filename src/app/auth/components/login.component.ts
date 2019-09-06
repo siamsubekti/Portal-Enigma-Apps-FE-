@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  protected form(property): AbstractControl {
+  form(property): AbstractControl {
     return this.loginForm.get(property);
   }
 

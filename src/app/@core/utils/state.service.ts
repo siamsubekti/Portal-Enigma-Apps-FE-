@@ -7,7 +7,7 @@ import { NbLayoutDirectionService, NbLayoutDirection } from '@nebular/theme';
 @Injectable()
 export class StateService implements OnDestroy {
 
-  protected layouts: any = [
+  layouts: any = [
     {
       name: 'One Column',
       icon: 'nb-layout-default',
@@ -26,7 +26,7 @@ export class StateService implements OnDestroy {
     },
   ];
 
-  protected sidebars: any = [
+  sidebars: any = [
     {
       name: 'Sidebar at layout start',
       icon: 'nb-layout-sidebar-left',
@@ -40,8 +40,8 @@ export class StateService implements OnDestroy {
     },
   ];
 
-  protected layoutState$ = new BehaviorSubject(this.layouts[0]);
-  protected sidebarState$ = new BehaviorSubject(this.sidebars[0]);
+  layoutState$ = new BehaviorSubject(this.layouts[0]);
+  sidebarState$ = new BehaviorSubject(this.sidebars[0]);
 
   alive = true;
 

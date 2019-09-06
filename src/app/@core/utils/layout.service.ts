@@ -5,7 +5,7 @@ import { delay, share } from 'rxjs/operators';
 @Injectable()
 export class LayoutService {
 
-  protected layoutSize$ = new Subject();
+  layoutSize$ = new Subject();
 
   changeLayoutSize() {
     this.layoutSize$.next();

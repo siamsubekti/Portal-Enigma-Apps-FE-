@@ -13,7 +13,7 @@ import { NbMenuItem } from '@nebular/theme';
   `,
 })
 export class PagesComponent {
-  protected items: NbMenuItem[] = [];
+  items: NbMenuItem[] = [];
 
   constructor(
     private readonly menuBuilder: MenuBuilderService,

@@ -10,7 +10,7 @@ import { Account } from '../../master/models';
   styleUrls: ['./home.scss'],
 })
 export class HomeComponent implements OnInit {
-  protected user: Account;
+  user: Account;
 
   constructor(
     private readonly title: Title,
