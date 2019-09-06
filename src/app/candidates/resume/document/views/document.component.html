@@ -11,12 +11,9 @@
                         (click)="uploadFileToActivity()">
                         <nb-icon pack="fa-solid" icon="upload"></nb-icon>&emsp;Upload
                     </button>
-                    <button *ngFor="let link of candidates" nbButton hero shape="rectangle" status="success" size="tiny"
-                        class="mx-1"> <a href="{{baseUrl}}/{{link.documents}}">
-                            <nb-icon pack="fa-solid" icon="download"></nb-icon>&emsp;Download CV
-                        </a>
-
-                    </button>
+                    <a *ngFor="let link of candidates"  href="{{baseUrl}}/{{link.documents}}" nbButton shape="rectangle" status="success" size="tiny" target="_blank">
+                        <nb-icon pack="fa-solid" icon="download"></nb-icon>&emsp;Download CV
+                    </a>
                 </div>
             </nb-card-body>
         </nb-card>
