@@ -46,7 +46,7 @@ export class HeaderEnigmaComponent implements OnInit, OnDestroy {
     this.currentTheme = this.themeService.currentTheme;
     this.user = {
       name: 'Person',
-      picture: '../../../../assets/images/user.png',
+      picture: 'assets/images/user.png',
     };
 
     if ( this.session.user ) {
