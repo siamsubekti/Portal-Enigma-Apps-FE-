@@ -49,7 +49,7 @@ export class HttpService {
       for (const key of Object.keys(params))
         url += `/${params[key]}`;
 
-    return `${env.apiBaseUrl.replace(/\/+$/, '')}${url}`;
+    return `${env.apiBaseUrl.replace(/\/+$/, '')}/${url}`;
   }
 
   get(code: string, pathParameters?: { [key: string]: string }, queryStrings?: {[param: string]: string}, options?: RequestOptions): Observable<any> {
