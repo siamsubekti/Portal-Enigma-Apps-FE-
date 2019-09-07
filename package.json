@@ -16,7 +16,7 @@
     "start": "ng serve --open",
     "start:ssl": "ng serve --open --proxy-config proxy.conf.json --ssl true --ssl-cert ./dev-certs/localhost.crt --ssl-key ./dev-certs/localhost.key",
     "build": "ng build",
-    "build:prod": "npm run build -- --prod --aot",
+    "build:prod": "npm run build -- --prod --aot --base-href /portal/",
     "test": "ng test",
     "test:coverage": "rimraf coverage && npm run test -- --code-coverage",
     "lint": "ng lint",
