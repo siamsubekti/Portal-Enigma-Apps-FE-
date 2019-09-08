@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "https://localhost:3000",
+      "target": "https://www.enigmacamp.com/api",
       "secure": false,
       "https:": true,
       "pathRewrite": {

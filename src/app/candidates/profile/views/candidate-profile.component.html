@@ -9,8 +9,8 @@
         <h5 class="mt-0 mb-3">{{ account.profile.fullname }} Profile</h5>
         <form [formGroup]="candidateForm" method="POST" (submit)="ngSubmitForm(candidateForm.value, candidateForm.valid)">
           <div class="form-group row">
-            <label for="fullname" class="col-2 col-form-label font-weight-bold">Fullname</label>
-              <section class="col-6">
+            <label for="fullname" class="col-lg-2 col-md-2 col-sm-12 col-form-label font-weight-bold">Fullname</label>
+              <section class="col-lg-6 col-md-6 col-sm-12">
                 <input type="text" class="form-control" formControlName="fullname" nbInput shape="rectangle" [hidden]="hiddenInput" />
                 <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.fullname }}</p>
               </section>
@@ -24,8 +24,8 @@
               </div>
           </div>
           <div class="form-group row">
-            <label for="nickname" class="col-2 col-form-label font-weight-bold">Nickname</label>
-            <section class="col-6">
+            <label for="nickname" class="col-lg-2 col-md-2 col-sm-12 col-form-label font-weight-bold">Nickname</label>
+            <section class="col-lg-6 col-md-6 col-sm-12">
               <input type="text" class="form-control" formControlName="nickname" nbInput shape="rectangle" [hidden]="hiddenInput" />
               <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.nickname }}</p>
             </section>
@@ -39,8 +39,8 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="email" class="col-2 col-form-label font-weight-bold">Email</label>
-            <section class="col-6">
+            <label for="email" class="col-lg-2 col-md-2 col-sm-12 col-form-label font-weight-bold">Email</label>
+            <section class="col-lg-6 col-md-6 col-sm-12">
               <input type="email" class="form-control" formControlName="email" nbInput shape="rectangle" [hidden]="hiddenInput" />
               <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.email }}</p>
             </section>
@@ -57,8 +57,8 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="phone" class="col-2 col-form-label font-weight-bold">Phone</label>
-            <section class="col-6">
+            <label for="phone" class="col-lg-2 col-md-2 col-sm-12 col-form-label font-weight-bold">Phone</label>
+            <section class="col-lg-6 col-md-6 col-sm-12">
               <input type="text" class="form-control" formControlName="phone" nbInput shape="rectangle" [hidden]="hiddenInput" />
               <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.phone }}</p>
             </section>
@@ -75,8 +75,8 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="birthdate" class="col-2 col-form-label font-weight-bold">Birthdate</label>
-            <section class="col-6">
+            <label for="birthdate" class="col-lg-2 col-md-2 col-sm-12 col-form-label font-weight-bold">Birthdate</label>
+            <section class="col-lg-6 col-md-6 col-sm-12">
               <input type="date" class="form-control" formControlName="birthdate" nbInput shape="rectangle" [hidden]="hiddenInput" />
               <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.birthdate | date : 'd-MMM-yyyy' }} <strong>({{ account.profile.birthdate | ngxAgePipe }})</strong></p>
             </section>
@@ -90,8 +90,8 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="gender" class="col-2 col-form-label font-weight-bold">Gender</label>
-            <section class="col-6">
+            <label for="gender" class="col-lg-2 col-md-2 col-sm-12 col-form-label font-weight-bold">Gender</label>
+            <section class="col-lg-6 col-md-6 col-sm-12">
               <ng-select [items]="genders" formControlName="gender" labelForId="gender" placeholder="Select Your Gender" [hidden]="hiddenInput"></ng-select>
               <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.gender }}</p>
             </section>
@@ -105,8 +105,8 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="religion" class="col-2 col-form-label font-weight-bold">Religion</label>
-            <section class="col-6">
+            <label for="religion" class="col-lg-2 col-md-2 col-sm-12 col-form-label font-weight-bold">Religion</label>
+            <section class="col-lg-6 col-md-6 col-sm-12">
               <ng-select [items]="religions" formControlName="religion" labelForId="religion" placeholder="Select Your Religion" [hidden]="hiddenInput"></ng-select>
               <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.religion }}</p>
             </section>
@@ -120,8 +120,8 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="maritalStatus" class="col-2 col-form-label font-weight-bold">Marital Status</label>
-            <section class="col-6">
+            <label for="maritalStatus" class="col-lg-2 col-md-2 col-sm-12 col-form-label font-weight-bold">Marital Status</label>
+            <section class="col-lg-6 col-md-6 col-sm-12">
               <ng-select [items]="maritalStatuses" formControlName="maritalStatus" labelForId="maritalStatus" placeholder="Select Your Marital Status" [hidden]="hiddenInput"></ng-select>
               <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.maritalStatus }}</p>
             </section>
@@ -146,5 +146,5 @@
         </form>
       </div>
     </div>
-  </nb-card-body>
+  </nb-card-body> 
 </nb-card>
