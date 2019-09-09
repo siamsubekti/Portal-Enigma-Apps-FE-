@@ -41,7 +41,7 @@
           <div class="form-group row">
             <label for="email" class="col-lg-2 col-md-2 col-sm-12 col-form-label font-weight-bold">Email</label>
             <section class="col-lg-6 col-md-6 col-sm-12">
-              <input type="email" class="form-control" formControlName="email" nbInput shape="rectangle" [hidden]="hiddenInput" />
+              <input readonly type="email" class="form-control" formControlName="email" nbInput shape="rectangle" [hidden]="hiddenInput" />
               <p class="form-control-plaintext" [hidden]="hiddenText">{{ account.profile.email }}</p>
             </section>
             <div class="col-8">
