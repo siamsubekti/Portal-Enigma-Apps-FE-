@@ -46,7 +46,7 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationService.captcha()
       .subscribe((captcha: CaptchaResponseDTO) => {
         this.captcha = captcha;
-        this.captchaContainer.nativeElement.innerHTML = captcha.image;
+        this.captchaContainer.nativeElement.innerHTML = captcha.image.replace('width="320"', 'width="100%"').replace('height="120"', 'height="100%"');
         this.loading = false;
       }, (errorResponse: HttpErrorResponse) => {
         const { error: { status } } = errorResponse;
